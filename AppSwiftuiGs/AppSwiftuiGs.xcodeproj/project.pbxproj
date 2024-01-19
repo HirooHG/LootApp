@@ -14,6 +14,15 @@
 		1A0D58CF2B5A779F00E39078 /* AppSwiftuiGsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0D58CE2B5A779F00E39078 /* AppSwiftuiGsTests.swift */; };
 		1A0D58D92B5A779F00E39078 /* AppSwiftuiGsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0D58D82B5A779F00E39078 /* AppSwiftuiGsUITests.swift */; };
 		1A0D58DB2B5A779F00E39078 /* AppSwiftuiGsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0D58DA2B5A779F00E39078 /* AppSwiftuiGsUITestsLaunchTests.swift */; };
+		1A0D58EB2B5A7B8C00E39078 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0D58EA2B5A7B8C00E39078 /* Item.swift */; };
+		1A0D58ED2B5A7FF300E39078 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0D58EC2B5A7FF300E39078 /* AddItemView.swift */; };
+		1A0D58F02B5A809D00E39078 /* Rarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0D58EF2B5A809D00E39078 /* Rarity.swift */; };
+		1A0D58F22B5A85D000E39078 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0D58F12B5A85D000E39078 /* Inventory.swift */; };
+		1AF8D30C2B5A9C82004989AA /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF8D30B2B5A9C82004989AA /* ItemType.swift */; };
+		1AF8D30E2B5A9EFB004989AA /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF8D30D2B5A9EFB004989AA /* Game.swift */; };
+		1AF8D3102B5ABC9F004989AA /* LootDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF8D30F2B5ABC9F004989AA /* LootDetailView.swift */; };
+		1AF8D3122B5AD964004989AA /* LootRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF8D3112B5AD964004989AA /* LootRow.swift */; };
+		1AF8D3152B5ADA0A004989AA /* RarityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF8D3142B5ADA0A004989AA /* RarityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +53,15 @@
 		1A0D58D42B5A779F00E39078 /* AppSwiftuiGsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppSwiftuiGsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A0D58D82B5A779F00E39078 /* AppSwiftuiGsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSwiftuiGsUITests.swift; sourceTree = "<group>"; };
 		1A0D58DA2B5A779F00E39078 /* AppSwiftuiGsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSwiftuiGsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1A0D58EA2B5A7B8C00E39078 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		1A0D58EC2B5A7FF300E39078 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		1A0D58EF2B5A809D00E39078 /* Rarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rarity.swift; sourceTree = "<group>"; };
+		1A0D58F12B5A85D000E39078 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		1AF8D30B2B5A9C82004989AA /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
+		1AF8D30D2B5A9EFB004989AA /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		1AF8D30F2B5ABC9F004989AA /* LootDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LootDetailView.swift; sourceTree = "<group>"; };
+		1AF8D3112B5AD964004989AA /* LootRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LootRow.swift; sourceTree = "<group>"; };
+		1AF8D3142B5ADA0A004989AA /* RarityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RarityView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +112,11 @@
 		1A0D58BC2B5A779D00E39078 /* AppSwiftuiGs */ = {
 			isa = PBXGroup;
 			children = (
+				1A0D58EE2B5A809000E39078 /* Utils */,
+				1A0D58E92B5A7B6D00E39078 /* modelview */,
+				1A0D58E82B5A7B6400E39078 /* view */,
+				1A0D58E72B5A7B3D00E39078 /* model */,
 				1A0D58BD2B5A779D00E39078 /* AppSwiftuiGsApp.swift */,
-				1A0D58BF2B5A779D00E39078 /* ContentView.swift */,
 				1A0D58C12B5A779F00E39078 /* Assets.xcassets */,
 				1A0D58C32B5A779F00E39078 /* Preview Content */,
 			);
@@ -125,6 +146,52 @@
 				1A0D58DA2B5A779F00E39078 /* AppSwiftuiGsUITestsLaunchTests.swift */,
 			);
 			path = AppSwiftuiGsUITests;
+			sourceTree = "<group>";
+		};
+		1A0D58E72B5A7B3D00E39078 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1A0D58EA2B5A7B8C00E39078 /* Item.swift */,
+				1A0D58F12B5A85D000E39078 /* Inventory.swift */,
+				1AF8D30D2B5A9EFB004989AA /* Game.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1A0D58E82B5A7B6400E39078 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				1AF8D3132B5AD9DD004989AA /* DetailView */,
+				1A0D58BF2B5A779D00E39078 /* ContentView.swift */,
+				1A0D58EC2B5A7FF300E39078 /* AddItemView.swift */,
+				1AF8D30F2B5ABC9F004989AA /* LootDetailView.swift */,
+				1AF8D3112B5AD964004989AA /* LootRow.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1A0D58E92B5A7B6D00E39078 /* modelview */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = modelview;
+			sourceTree = "<group>";
+		};
+		1A0D58EE2B5A809000E39078 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1A0D58EF2B5A809D00E39078 /* Rarity.swift */,
+				1AF8D30B2B5A9C82004989AA /* ItemType.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1AF8D3132B5AD9DD004989AA /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				1AF8D3142B5ADA0A004989AA /* RarityView.swift */,
+			);
+			path = DetailView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +324,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AF8D3122B5AD964004989AA /* LootRow.swift in Sources */,
+				1AF8D30C2B5A9C82004989AA /* ItemType.swift in Sources */,
+				1A0D58F22B5A85D000E39078 /* Inventory.swift in Sources */,
 				1A0D58C02B5A779D00E39078 /* ContentView.swift in Sources */,
+				1AF8D3152B5ADA0A004989AA /* RarityView.swift in Sources */,
+				1AF8D3102B5ABC9F004989AA /* LootDetailView.swift in Sources */,
+				1A0D58F02B5A809D00E39078 /* Rarity.swift in Sources */,
+				1A0D58EB2B5A7B8C00E39078 /* Item.swift in Sources */,
 				1A0D58BE2B5A779D00E39078 /* AppSwiftuiGsApp.swift in Sources */,
+				1A0D58ED2B5A7FF300E39078 /* AddItemView.swift in Sources */,
+				1AF8D30E2B5A9EFB004989AA /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
