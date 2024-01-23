@@ -9,8 +9,7 @@ import SwiftUI
 
 struct RarityView: View {
     let item: Item
-    @State var degrees = 0.0
-    @State var scale = 0.0
+    @State var isAnimated = false
     @State var offsetX = 0.0
     @State var offsetY = 0.0
     
@@ -27,16 +26,16 @@ struct RarityView: View {
                 .shadow(color: item.rarity.getColor(), radius: 10)
                 .offset(x: offsetX, y: offsetY)
                 .rotation3DEffect(
-                    .degrees(degrees),
+                    .degrees(isAnimated ? 720 : 0),
                     axis: (x: 1.0, y: 1.0, z: 1.0)
                 )
-                .onAppear {
-                    withAnimation(.smooth.delay(0.4)) {
-                        degrees -= 720
-                    }
+                .animation(.smooth.delay(0.4), value: isAnimated)
+                .task {
+                    try! await Task.sleep(nanoseconds: 4000)
+                    isAnimated = true
                 }
                 .onTapGesture {
-                    withAnimation(.smooth.delay(0.4)) {
+                    withAnimation(.smooth) {
                         let width = UIScreen.main.bounds.width
                         let height = 300.0
                         offsetX = Double.random(in: (-width / 2)..<(width / 2))
@@ -46,11 +45,11 @@ struct RarityView: View {
                 Text(item.name)
                     .font(.system(size: 35, weight: Font.Weight.black))
                     .foregroundStyle(item.rarity.getColor())
-            }.frame(height: 340)
+            }.frame(height: 300)
             Spacer()
             if item.rarity == Rarity.unique {
                 HStack {
-                    Text("Item Unique 🏆")
+                    Text("Unique Item 🏆")
                         .frame(maxWidth: .infinity)
                         .padding(15)
                 }
@@ -58,18 +57,12 @@ struct RarityView: View {
                     .foregroundStyle(.white)
                     .font(.system(size: 20, weight: Font.Weight.black))
                     .padding(10)
-                    .frame(maxWidth: .infinity)
                     .containerShape(RoundedRectangle(cornerRadius: 25))
                     .shadow(color: item.rarity.getColor(), radius: 3)
-                    .scaleEffect(scale)
-                    .onAppear {
-                        withAnimation(.smooth.delay(0.4)) {
-                            scale += 1
-                        }
-                    }
+                    .scaleEffect(isAnimated ? 1 : 0)
+                    .animation(.smooth.delay(0.4), value: isAnimated )
             }
         }
-        .frame(height: 380)
         .frame(maxWidth: .infinity)
         .zIndex(10)
     }

@@ -33,9 +33,9 @@ struct DetailsView: View {
                     Text(item.game.name)
                 }
                 Text("In-game: \(item.name)")
-                Text("Puissance: \(item.attackStrength ?? 0)")
-                Text("Possédé(s): \(item.quantity)")
-                Text("Possédé(s): \(item.rarity.rawValue)")
+                Text("Power: \(item.attackStrength ?? 0)")
+                Text("Pocessed: \(item.quantity)")
+                Text("Rarity: \(item.rarity.rawValue)")
             }
         }
     }

@@ -10,7 +10,7 @@ import SwiftUI
 struct AddItemView: View {
     @State var name = ""
     @State var rarity = Rarity.common
-    @State var game = availableGames.first ?? Game.emptyGame
+    @State var game = Game.emptyGame
     @State var nb = 0
     @State var itemType = ItemType.unknown
     @State var isAttack = false
@@ -25,8 +25,8 @@ struct AddItemView: View {
     var body: some View {
         Form {
             Section {
-                TextField("Nom de l'objet", text: $name)
-                Picker("Rarete", selection: $rarity) {
+                TextField("Item's name", text: $name)
+                Picker("Rarity", selection: $rarity) {
                     ForEach(Rarity.allCases, id: \.self) { rarity in
                         Text(String(describing: rarity).capitalized)
                     }
@@ -34,13 +34,13 @@ struct AddItemView: View {
             }
             Section {
                 Section {
-                    Picker("Jeux", selection: $game) {
+                    Picker("Games", selection: $game) {
                         ForEach(availableGames, id: \.self) { gameItem in
                             Text(gameItem.name)
                         }
                     }
                     Stepper {
-                        Text("Combien: \(nb)")
+                        Text("How many: \(nb)")
                     } onIncrement: {
                         nb += 1
                     } onDecrement: {
@@ -69,7 +69,7 @@ struct AddItemView: View {
                 }
                 if isAttack {
                     Stepper {
-                        Text("Force d'attaque: \(attack)")
+                        Text("Power: \(attack)")
                     } onIncrement: {
                         attack += 1
                     } onDecrement: {
@@ -104,7 +104,7 @@ struct AddItemView: View {
                     ))
                     dismiss()
                 }, label: {
-                    Text("Ajouter")
+                    Text("Add")
                 })
                 .alert(isPresented: $showAlert) {
                     Alert(

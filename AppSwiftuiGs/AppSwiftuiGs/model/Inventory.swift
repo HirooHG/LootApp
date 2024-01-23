@@ -13,21 +13,21 @@ class Inventory: ObservableObject {
             name: "Epée",
             quantity: 1,
             rarity: Rarity.common,
-            attackStrength: 10,
+            attackStrength: 5,
             game: availableGames[0],
             itemType: ItemType.dagger),
         Item(
             name: "Bouclier",
             quantity: 1,
             rarity: Rarity.uncommon,
-            attackStrength: 10,
+            attackStrength: nil,
             game: availableGames[0],
             itemType: ItemType.shield),
         Item(
             name: "Armure",
             quantity: 1,
             rarity: Rarity.unique,
-            attackStrength: 10,
+            attackStrength: nil,
             game: availableGames[1],
             itemType: ItemType.shield
         )

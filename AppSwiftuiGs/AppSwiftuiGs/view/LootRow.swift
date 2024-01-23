@@ -14,14 +14,11 @@ struct LootRow: View {
         HStack(
             alignment: .center
         ) {
-            VStack {
-                HStack {
-                    Circle()
-                        .fill(item.rarity.getColor())
-                        .frame(width: 10)
-                    Text(item.name)
-                }
-                Text("Quantité: \(item.quantity)")
+            HStack {
+                Circle()
+                    .fill(item.rarity.getColor())
+                    .frame(width: 10)
+                Text("\(item.name) x\(item.quantity)")
             }
             Spacer()
             Text(item.itemType.rawValue)
