@@ -23,11 +23,11 @@ struct ContentView: View {
             .sheet(isPresented: $showAddItemView, onDismiss: { showAddItemView = false },content: {
                 AddItemView()
             })
-            .navigationBarTitle("Loot") // Notre titre de page, choisissez le titre que vous voulez
-            .toolbar(content: { // La barre d'outil de notre page
+            .navigationBarTitle("Loot")
+            .toolbar(content: {
                 ToolbarItem(placement: ToolbarItemPlacement.automatic) {
                     Button(action: {
-                        showAddItemView.toggle() // L'action de notre bouton
+                        showAddItemView.toggle()
                     }, label: {
                         Image(systemName: "plus.circle.fill")
                     })

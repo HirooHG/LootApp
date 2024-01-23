@@ -11,6 +11,8 @@ struct RarityView: View {
     let item: Item
     @State var degrees = 0.0
     @State var scale = 0.0
+    @State var offsetX = 0.0
+    @State var offsetY = 0.0
     
     var body: some View {
         VStack {
@@ -23,6 +25,7 @@ struct RarityView: View {
                 .background(item.rarity.getColor())
                 .containerShape(RoundedRectangle(cornerRadius: 25))
                 .shadow(color: item.rarity.getColor(), radius: 10)
+                .offset(x: offsetX, y: offsetY)
                 .rotation3DEffect(
                     .degrees(degrees),
                     axis: (x: 1.0, y: 1.0, z: 1.0)
@@ -30,6 +33,14 @@ struct RarityView: View {
                 .onAppear {
                     withAnimation(.smooth.delay(0.4)) {
                         degrees -= 720
+                    }
+                }
+                .onTapGesture {
+                    withAnimation(.smooth.delay(0.4)) {
+                        let width = UIScreen.main.bounds.width
+                        let height = 300.0
+                        offsetX = Double.random(in: (-width / 2)..<(width / 2))
+                        offsetY = Double.random(in: (-height / 2)..<(height / 2))
                     }
                 }
                 Text(item.name)
@@ -58,8 +69,9 @@ struct RarityView: View {
                     }
             }
         }
-        .frame(height: 400)
+        .frame(height: 380)
         .frame(maxWidth: .infinity)
+        .zIndex(10)
     }
 }
 

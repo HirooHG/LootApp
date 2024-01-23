@@ -10,11 +10,14 @@ import SwiftUI
 struct AddItemView: View {
     @State var name = ""
     @State var rarity = Rarity.common
-    @State var game = Game.emptyGame
+    @State var game = availableGames.first ?? Game.emptyGame
     @State var nb = 0
     @State var itemType = ItemType.unknown
     @State var isAttack = false
     @State var attack = 1
+    
+    @State var error = FormError.Unknown
+    @State var showAlert = false
     
     @EnvironmentObject var inventory: Inventory
     @Environment(\.dismiss) var dismiss
@@ -76,6 +79,21 @@ struct AddItemView: View {
             }
             Section {
                 Button(action: {
+                    if name.isEmpty || name.count < 3 {
+                        error = FormError.NameItemMinLengthOrEmpty
+                        showAlert = true
+                        return
+                    }
+                    if game == Game.emptyGame {
+                        error = FormError.GameEmpty
+                        showAlert = true
+                        return
+                    }
+                    if itemType == ItemType.unknown {
+                        error = FormError.TypeUnknown
+                        showAlert = true
+                        return
+                    }
                     inventory.addItem(item: Item(
                         name: name,
                         quantity: nb,
@@ -88,6 +106,11 @@ struct AddItemView: View {
                 }, label: {
                     Text("Ajouter")
                 })
+                .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text(error.rawValue)
+                    )
+                }
             }
         }
     }
