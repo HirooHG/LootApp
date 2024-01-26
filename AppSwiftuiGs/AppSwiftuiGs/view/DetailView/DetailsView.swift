@@ -36,6 +36,18 @@ struct DetailsView: View {
                 Text("Power: \(item.attackStrength ?? 0)")
                 Text("Pocessed: \(item.quantity)")
                 Text("Rarity: \(item.rarity.rawValue)")
+                if let cover = item.cover {
+                    AsyncImage(url: cover) { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 150)
+                                .containerShape(RoundedRectangle(cornerRadius: 4))
+                                .clipShape(.rect(cornerRadius: 4))
+                        }
+                    }
+                }
             }
         }
     }

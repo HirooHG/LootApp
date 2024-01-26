@@ -12,25 +12,24 @@ class Inventory: ObservableObject {
         Item(
             name: "Epée",
             quantity: 1,
-            rarity: Rarity.common,
             attackStrength: 5,
-            game: availableGames[0],
-            itemType: ItemType.dagger),
+            rarity: Rarity.common,
+            itemType: ItemType.dagger,
+            game: availableGames[1]),
         Item(
             name: "Bouclier",
             quantity: 1,
-            rarity: Rarity.uncommon,
             attackStrength: nil,
-            game: availableGames[0],
-            itemType: ItemType.shield),
+            rarity: Rarity.uncommon,
+            itemType: ItemType.shield,
+            game: availableGames[2]),
         Item(
             name: "Armure",
             quantity: 1,
-            rarity: Rarity.unique,
             attackStrength: nil,
-            game: availableGames[1],
-            itemType: ItemType.shield
-        )
+            rarity: Rarity.unique,
+            itemType: ItemType.shield,
+            game: availableGames[3])
     ]
     
     func addItem(item: Item) {
