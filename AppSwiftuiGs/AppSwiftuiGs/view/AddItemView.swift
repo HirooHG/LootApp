@@ -6,21 +6,44 @@
 //
 
 import SwiftUI
+import PhotosUI
+
+extension FileManager {
+    static var documentsDirectory: URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+}
 
 struct AddItemView: View {
-    @State var name = ""
-    @State var rarity = Rarity.common
-    @State var game = Game.emptyGame
-    @State var nb = 0
-    @State var itemType = ItemType.unknown
+    @State var id: UUID? = nil
+    @State var name: String = ""
+    @State var rarity: Rarity = Rarity.common
+    @State var game: Game = Game.emptyGame
+    @State var nb: Int = 0
+    @State var itemType: ItemType = ItemType.unknown
+    @State var attack: Int = 0
+    
+    @State var photoItem: PhotosPickerItem? = nil
+    @State var photoItemImage: Image? = nil
+    
     @State var isAttack = false
-    @State var attack = 1
+    @State var isCustom = false
+
     
     @State var error = FormError.Unknown
     @State var showAlert = false
     
     @EnvironmentObject var inventory: Inventory
     @Environment(\.dismiss) var dismiss
+    
+    func writeToDisk(image: UIImage, imageName: String) -> URL {
+        let savePath = FileManager.documentsDirectory.appendingPathComponent("\(imageName).jpg")
+        if let jpegData = image.jpegData(compressionQuality: 0.5) {
+            try? jpegData.write(to: savePath, options: [.atomic, .completeFileProtection])
+        }
+        return savePath
+    }
     
     var body: some View {
         Form {
@@ -64,6 +87,25 @@ struct AddItemView: View {
                     .paletteSelectionEffect(.symbolVariant(.slash))
             }
             Section {
+                Toggle(isOn: $isCustom.animation()) {
+                    Text("Item Custom ?")
+                }
+                if isCustom {
+                    PhotosPicker(selection: $photoItem, matching: .images) {
+                        Text("Select an image")
+                    }
+                        .buttonStyle(.borderless)
+                        .animation(.bouncy, value: isAttack)
+                }
+                if photoItemImage != nil {
+                    photoItemImage!
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 100)
+                        .clipShape(RoundedRectangle(cornerSize: CGSize(width: 20, height: 20)))
+                }
+            }
+            Section {
                 Toggle(isOn: $isAttack.animation()) {
                     Text("Attack ?")
                 }
@@ -94,22 +136,54 @@ struct AddItemView: View {
                         showAlert = true
                         return
                     }
-                    inventory.addItem(item: Item(
-                        name: name,
-                        quantity: nb,
-                        rarity: rarity,
-                        attackStrength: isAttack ? attack : nil,
-                        game: game,
-                        itemType: itemType
-                    ))
+                    let imageUi = ImageRenderer(content: photoItemImage).uiImage
+                    let url = writeToDisk(image: imageUi!, imageName: name)
+                    
+                    if(self.id == nil)  {
+                        inventory.addItem(item: Item(
+                            name: name,
+                            quantity: nb,
+                            attackStrength: isAttack ? attack : nil,
+                            rarity: rarity,
+                            itemType: itemType,
+                            game: game,
+                            cover: url
+                        ))
+                    } else {
+                        let index = inventory.loot.firstIndex(where: {
+                            $0.id == self.id
+                        })
+                        let newItem = Item(
+                            id: id!,
+                            name: name,
+                            quantity: nb,
+                            attackStrength: isAttack ? attack : nil,
+                            rarity: rarity,
+                            itemType: itemType,
+                            game: game,
+                            cover: url
+                        )
+                        inventory.loot[index!] = newItem
+                    }
                     dismiss()
                 }, label: {
-                    Text("Add")
+                    Text(
+                        self.id == nil ? "Add" : "Save"
+                    )
                 })
                 .alert(isPresented: $showAlert) {
                     Alert(
                         title: Text(error.rawValue)
                     )
+                }
+            }
+        }
+        .onChange(of: photoItem) {
+            Task {
+                if photoItem != nil {
+                    if let image = try? await photoItem!.loadTransferable(type: Image.self) {
+                        photoItemImage = image
+                    }
                 }
             }
         }

@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct AppSwiftuiGsApp: App {
+    @AppStorage("isOnboardingDone") var isOnboardingDone: Bool = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isOnboardingDone {
+                ContentView(actionReverseOnboarding: {
+                    isOnboardingDone = false
+                })
+            } else {
+                OnboardingScreenView(actionGs: {
+                    isOnboardingDone = true
+                })
+            }
+            
         }
     }
 }

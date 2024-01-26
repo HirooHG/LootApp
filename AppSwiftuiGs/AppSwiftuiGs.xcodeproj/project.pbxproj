@@ -18,6 +18,12 @@
 		1A0D58ED2B5A7FF300E39078 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0D58EC2B5A7FF300E39078 /* AddItemView.swift */; };
 		1A0D58F02B5A809D00E39078 /* Rarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0D58EF2B5A809D00E39078 /* Rarity.swift */; };
 		1A0D58F22B5A85D000E39078 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0D58F12B5A85D000E39078 /* Inventory.swift */; };
+		1ABF8CCF2B63975A00ADFF45 /* LooterFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF8CCE2B63975A00ADFF45 /* LooterFeatures.swift */; };
+		1ABF8CD12B6397D900ADFF45 /* LootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF8CD02B6397D900ADFF45 /* LootView.swift */; };
+		1ABF8CD42B63986200ADFF45 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF8CD32B63986200ADFF45 /* WishListView.swift */; };
+		1ABF8CD62B63986F00ADFF45 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF8CD52B63986F00ADFF45 /* ProfileView.swift */; };
+		1ABF8CD82B639AD000ADFF45 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF8CD72B639AD000ADFF45 /* OnboardingView.swift */; };
+		1ABF8CDA2B639BD400ADFF45 /* OnboardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF8CD92B639BD400ADFF45 /* OnboardingScreenView.swift */; };
 		1AEA356A2B5F958000F649E2 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEA35692B5F958000F649E2 /* DetailsView.swift */; };
 		1AEA356C2B5F9F5A00F649E2 /* FormError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEA356B2B5F9F5A00F649E2 /* FormError.swift */; };
 		1AF8D30C2B5A9C82004989AA /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF8D30B2B5A9C82004989AA /* ItemType.swift */; };
@@ -59,6 +65,12 @@
 		1A0D58EC2B5A7FF300E39078 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		1A0D58EF2B5A809D00E39078 /* Rarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rarity.swift; sourceTree = "<group>"; };
 		1A0D58F12B5A85D000E39078 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		1ABF8CCE2B63975A00ADFF45 /* LooterFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooterFeatures.swift; sourceTree = "<group>"; };
+		1ABF8CD02B6397D900ADFF45 /* LootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LootView.swift; sourceTree = "<group>"; };
+		1ABF8CD32B63986200ADFF45 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
+		1ABF8CD52B63986F00ADFF45 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		1ABF8CD72B639AD000ADFF45 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		1ABF8CD92B639BD400ADFF45 /* OnboardingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreenView.swift; sourceTree = "<group>"; };
 		1AEA35692B5F958000F649E2 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		1AEA356B2B5F9F5A00F649E2 /* FormError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormError.swift; sourceTree = "<group>"; };
 		1AF8D30B2B5A9C82004989AA /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
@@ -156,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				1A0D58EA2B5A7B8C00E39078 /* Item.swift */,
-				1A0D58F12B5A85D000E39078 /* Inventory.swift */,
 				1AF8D30D2B5A9EFB004989AA /* Game.swift */,
 			);
 			path = model;
@@ -165,11 +176,16 @@
 		1A0D58E82B5A7B6400E39078 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				1A19F2BB2B63C604002FBDE8 /* OnBoarding */,
+				1ABF8CD22B63982D00ADFF45 /* LootView */,
 				1AF8D3132B5AD9DD004989AA /* DetailView */,
 				1A0D58BF2B5A779D00E39078 /* ContentView.swift */,
 				1A0D58EC2B5A7FF300E39078 /* AddItemView.swift */,
 				1AF8D30F2B5ABC9F004989AA /* LootDetailView.swift */,
-				1AF8D3112B5AD964004989AA /* LootRow.swift */,
+				1ABF8CD02B6397D900ADFF45 /* LootView.swift */,
+				1ABF8CD32B63986200ADFF45 /* WishListView.swift */,
+				1ABF8CD52B63986F00ADFF45 /* ProfileView.swift */,
+				1ABF8CD92B639BD400ADFF45 /* OnboardingScreenView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -177,6 +193,7 @@
 		1A0D58E92B5A7B6D00E39078 /* modelview */ = {
 			isa = PBXGroup;
 			children = (
+				1A0D58F12B5A85D000E39078 /* Inventory.swift */,
 			);
 			path = modelview;
 			sourceTree = "<group>";
@@ -187,8 +204,25 @@
 				1A0D58EF2B5A809D00E39078 /* Rarity.swift */,
 				1AF8D30B2B5A9C82004989AA /* ItemType.swift */,
 				1AEA356B2B5F9F5A00F649E2 /* FormError.swift */,
+				1ABF8CCE2B63975A00ADFF45 /* LooterFeatures.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		1A19F2BB2B63C604002FBDE8 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				1ABF8CD72B639AD000ADFF45 /* OnboardingView.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		1ABF8CD22B63982D00ADFF45 /* LootView */ = {
+			isa = PBXGroup;
+			children = (
+				1AF8D3112B5AD964004989AA /* LootRow.swift */,
+			);
+			path = LootView;
 			sourceTree = "<group>";
 		};
 		1AF8D3132B5AD9DD004989AA /* DetailView */ = {
@@ -330,19 +364,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ABF8CD12B6397D900ADFF45 /* LootView.swift in Sources */,
 				1AF8D3122B5AD964004989AA /* LootRow.swift in Sources */,
 				1AF8D30C2B5A9C82004989AA /* ItemType.swift in Sources */,
+				1ABF8CD82B639AD000ADFF45 /* OnboardingView.swift in Sources */,
 				1AEA356C2B5F9F5A00F649E2 /* FormError.swift in Sources */,
 				1A0D58F22B5A85D000E39078 /* Inventory.swift in Sources */,
 				1A0D58C02B5A779D00E39078 /* ContentView.swift in Sources */,
 				1AF8D3152B5ADA0A004989AA /* RarityView.swift in Sources */,
 				1AEA356A2B5F958000F649E2 /* DetailsView.swift in Sources */,
+				1ABF8CDA2B639BD400ADFF45 /* OnboardingScreenView.swift in Sources */,
+				1ABF8CCF2B63975A00ADFF45 /* LooterFeatures.swift in Sources */,
+				1ABF8CD62B63986F00ADFF45 /* ProfileView.swift in Sources */,
 				1AF8D3102B5ABC9F004989AA /* LootDetailView.swift in Sources */,
 				1A0D58F02B5A809D00E39078 /* Rarity.swift in Sources */,
 				1A0D58EB2B5A7B8C00E39078 /* Item.swift in Sources */,
 				1A0D58BE2B5A779D00E39078 /* AppSwiftuiGsApp.swift in Sources */,
 				1A0D58ED2B5A7FF300E39078 /* AddItemView.swift in Sources */,
 				1AF8D30E2B5A9EFB004989AA /* Game.swift in Sources */,
+				1ABF8CD42B63986200ADFF45 /* WishListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
