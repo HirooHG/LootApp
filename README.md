@@ -1,2 +1,7 @@
-# swiftuit-gs
-Swift UI framework SwiftUi getting started
+# LootApp
+> learning SwiftUi through a looting app with
+
+ - Loots
+ - Games
+
+And many more features
